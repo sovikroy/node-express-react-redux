@@ -1,0 +1,24 @@
+{
+  "name": "node-express-react-redux",
+  "version": "1.0.0",
+  "description":
+    "A simple example using React Frontend with Node Express Backend in a single project",
+  "author": {
+    "name": "Sovik Roy",
+    "email": "roy.sovik@gmail.com",
+    "url": "http://sovikroy.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  },
+  "keywords": ["node", "express", "react", "redux"]
+}
