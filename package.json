@@ -1,8 +1,7 @@
 {
   "name": "node-express-react-redux",
   "version": "1.0.0",
-  "description":
-    "A simple example using React Frontend with Node Express Backend in a single project",
+  "description": "A simple example using React Frontend with Node Express Backend in a single project",
   "author": {
     "name": "Sovik Roy",
     "email": "roy.sovik@gmail.com",
@@ -20,5 +19,10 @@
   "devDependencies": {
     "concurrently": "5.2.0"
   },
-  "keywords": ["node", "express", "react", "redux"]
+  "keywords": [
+    "node",
+    "express",
+    "react",
+    "redux"
+  ]
 }
