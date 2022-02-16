@@ -1,25 +1,18 @@
-import { applyMiddleware, createStore, compose } from 'redux';
-import rootReducer from './reducers';
+import { configureStore } from '@reduxjs/toolkit'
 import { routerMiddleware } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
-import { createLogger } from 'redux-logger';
+import { createBrowserHistory } from 'history';
 import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 import promiseMiddleware from 'redux-promise-middleware'
+import rootReducer from './reducers';
 
 const logger = createLogger({
 })
 
-const history = createHistory();
+const history = createBrowserHistory();
 const routerHistory = routerMiddleware(history);
-let middlewareArray = [promiseMiddleware(), thunk, routerHistory];
-if (process.env.NODE_ENV !== 'production') {
-    middlewareArray = [...middlewareArray, logger];
-}
 
-const middleware = applyMiddleware(...middlewareArray);
-
-const store = createStore(rootReducer,
-    compose(middleware, window.devToolsExtension ? window.devToolsExtension() : f => f)
-);
-
-export default store;
+export default configureStore({
+  reducer: rootReducer,
+  middleware: [thunk, logger, routerHistory], //Custom middleware injection using reduxjs toolkit
+})
